@@ -1,13 +1,16 @@
 var express = require('express');
 var router = express.Router();
 const bodyParser = require('body-parser');
-var User = require('../models/user');
+var User = require('../models/users');
 
 /* GET users listing. 
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 */
+
+router.use(bodyParser.json());
+
 
 router.post('/signup', (req, res, next) => {
   User.findOne({username: req.body.username})
