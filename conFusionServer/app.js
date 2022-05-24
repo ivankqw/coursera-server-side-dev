@@ -14,6 +14,8 @@ var leaderRouter = require("./routes/leaderRouter");
 var passport = require('passport');
 var authenticate = require('./authenticate');
 var config = require('./config');
+const uploadRouter = require('./routes/uploadRouter');
+
 
 
 const Dishes = require("./models/dishes");
@@ -49,6 +51,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/dishes", dishRouter);
 app.use("/promotions", promoRouter);
 app.use("/leaders", leaderRouter);
+app.use('/imageUpload',uploadRouter);
 
 app.use(cookieParser("12345-67890-09876-54321"));
 // view engine setup
@@ -59,6 +62,7 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
 
 
 
