@@ -15,6 +15,8 @@ var passport = require('passport');
 var authenticate = require('./authenticate');
 var config = require('./config');
 const uploadRouter = require('./routes/uploadRouter');
+const favoriteRouter = require('./routes/favoriteRouter');
+
 
 
 
@@ -52,6 +54,8 @@ app.use("/dishes", dishRouter);
 app.use("/promotions", promoRouter);
 app.use("/leaders", leaderRouter);
 app.use('/imageUpload',uploadRouter);
+app.use('/favorites',favoriteRouter);
+
 
 app.use(cookieParser("12345-67890-09876-54321"));
 // view engine setup
